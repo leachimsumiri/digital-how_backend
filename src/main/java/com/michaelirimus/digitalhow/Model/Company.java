@@ -1,14 +1,16 @@
 package com.michaelirimus.digitalhow.Model;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
 @Table(name = "companies")
-public class Company {
+public class Company implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="id")
+    @Column(name = "id")
     private int id;
 
     @Column(name = "description", nullable = false)
@@ -60,5 +62,18 @@ public class Company {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Company company = (Company) o;
+        return id == company.id && isAssociation == company.isAssociation && Objects.equals(description, company.description) && Objects.equals(url, company.url);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, description, isAssociation, url);
     }
 }
