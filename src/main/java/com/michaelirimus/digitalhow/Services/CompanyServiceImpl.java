@@ -1,5 +1,7 @@
-package com.michaelirimus.digitalhow;
+package com.michaelirimus.digitalhow.Services;
 
+import com.michaelirimus.digitalhow.Model.Company;
+import com.michaelirimus.digitalhow.Repositories.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

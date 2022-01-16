@@ -1,4 +1,6 @@
-package com.michaelirimus.digitalhow;
+package com.michaelirimus.digitalhow.Services;
+
+import com.michaelirimus.digitalhow.Model.Company;
 
 import java.util.List;
 
