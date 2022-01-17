@@ -1,20 +1,24 @@
-package com.michaelirimus.digitalhow.Model;
+package com.michaelirimus.digitalhow.Model.SocialNetwork;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name = "service_types")
-public class ServiceType implements Serializable {
+@Table(name = "social_network_types")
+public class SocialNetworkType implements Serializable {
 
     @Id
     @Column(name = "description")
     private String description;
 
-    public ServiceType() {}
+    public SocialNetworkType() {
+    }
 
-    public ServiceType(String description) {
+    public SocialNetworkType(String description) {
         this.description = description;
     }
 
@@ -30,7 +34,7 @@ public class ServiceType implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ServiceType that = (ServiceType) o;
+        SocialNetworkType that = (SocialNetworkType) o;
         return Objects.equals(description, that.description);
     }
 

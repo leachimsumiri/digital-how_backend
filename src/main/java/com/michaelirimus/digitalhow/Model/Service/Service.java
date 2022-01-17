@@ -1,4 +1,6 @@
-package com.michaelirimus.digitalhow.Model;
+package com.michaelirimus.digitalhow.Model.Service;
+
+import com.michaelirimus.digitalhow.Model.Company;
 
 import javax.persistence.*;
 import java.io.Serializable;

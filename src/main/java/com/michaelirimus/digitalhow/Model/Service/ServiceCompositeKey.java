@@ -1,4 +1,4 @@
-package com.michaelirimus.digitalhow.Model;
+package com.michaelirimus.digitalhow.Model.Service;
 
 import java.io.Serializable;
 import java.util.Objects;

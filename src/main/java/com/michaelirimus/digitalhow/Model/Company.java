@@ -19,8 +19,8 @@ public class Company implements Serializable {
     @Column(name = "is_association", nullable = false)
     private boolean isAssociation;
 
-   @Column(name = "url")
-   private String url;
+    @Column(name = "url")
+    private String url;
 
     public Company() {
 

@@ -13,7 +13,7 @@ public class ServiceServiceImpl implements ServiceService {
     private ServiceRepository serviceRepository;
 
     @Override
-    public List<com.michaelirimus.digitalhow.Model.Service> getAllServices() {
+    public List<com.michaelirimus.digitalhow.Model.Service.Service> getAllServices() {
         return this.serviceRepository.findAll();
     }
 }
