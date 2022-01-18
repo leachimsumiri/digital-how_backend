@@ -1,11 +1,17 @@
 package com.michaelirimus.digitalhow.Model.SocialNetwork;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.michaelirimus.digitalhow.Model.Company;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "socialNetworkType")
 @Entity
 @Table(name = "social_networks")
 @IdClass(SocialNetworkCompositeKey.class)
@@ -20,7 +26,7 @@ public class SocialNetwork implements Serializable {
     private String url;
 
     @Id
-    @OneToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "company_id")
     private Company company;
 
@@ -62,7 +68,7 @@ public class SocialNetwork implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         SocialNetwork that = (SocialNetwork) o;
-        return Objects.equals(socialNetworkType, that.socialNetworkType) && Objects.equals(url, that.url) && Objects.equals(company, that.company);
+        return socialNetworkType.equals(that.socialNetworkType) && url.equals(that.url) && company.equals(that.company);
     }
 
     @Override

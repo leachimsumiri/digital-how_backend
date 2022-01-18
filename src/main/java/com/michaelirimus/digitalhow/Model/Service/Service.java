@@ -24,8 +24,7 @@ public class Service implements Serializable {
     @JoinColumn(name = "company_id")
     private Company company;
 
-    public Service() {
-    }
+    public Service() {}
 
     public Service(ServiceType serviceType, boolean inHouse, Company company) {
         this.serviceType = serviceType;
@@ -62,7 +61,7 @@ public class Service implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Service service = (Service) o;
-        return inHouse == service.inHouse && Objects.equals(serviceType, service.serviceType) && Objects.equals(company, service.company);
+        return inHouse == service.inHouse && serviceType.equals(service.serviceType) && company.equals(service.company);
     }
 
     @Override

@@ -31,7 +31,7 @@ public class ServiceType implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ServiceType that = (ServiceType) o;
-        return Objects.equals(description, that.description);
+        return description.equals(that.description);
     }
 
     @Override

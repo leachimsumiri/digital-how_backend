@@ -13,22 +13,7 @@ public class CompanyServiceImpl implements CompanyService {
     private CompanyRepository companyRepository;
 
     @Override
-    public void addCompany(Company company) {
-        this.companyRepository.save(company);
-    }
-
-    @Override
     public List<Company> getAllCompanies() {
         return this.companyRepository.findAll();
-    }
-
-    @Override
-    public Company getCompanyById(Long id) {
-        return this.companyRepository.getById(id);
-    }
-
-    @Override
-    public void deleteCompanyById(Long id) {
-        this.companyRepository.deleteById(id);
     }
 }

@@ -35,7 +35,7 @@ public class SocialNetworkType implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         SocialNetworkType that = (SocialNetworkType) o;
-        return Objects.equals(description, that.description);
+        return description.equals(that.description);
     }
 
     @Override
