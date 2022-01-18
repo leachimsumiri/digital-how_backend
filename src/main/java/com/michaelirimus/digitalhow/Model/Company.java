@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.michaelirimus.digitalhow.Model.Service.Service;
 import com.michaelirimus.digitalhow.Model.SocialNetwork.SocialNetwork;
 
 import javax.persistence.*;
@@ -38,7 +39,7 @@ public class Company implements Serializable {
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    private List<SocialNetwork> socialNetwork;
+    private List<SocialNetwork> socialNetworks;
 
     @OneToMany(
             mappedBy = "company",
@@ -48,13 +49,15 @@ public class Company implements Serializable {
     )
     private List<Studio> studios;
 
-    public Company() {}
+    @OneToMany(
+            mappedBy = "company",
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<Service> services;
 
-    public Company(String description, boolean isAssociation, String url) {
-        this.description = description;
-        this.isAssociation = isAssociation;
-        this.url = url;
-    }
+    public Company() {}
 
     public int getId() {
         return id;
@@ -88,12 +91,12 @@ public class Company implements Serializable {
         this.url = url;
     }
 
-    public List<SocialNetwork> getSocialNetwork() {
-        return socialNetwork;
+    public List<SocialNetwork> getSocialNetworks() {
+        return socialNetworks;
     }
 
-    public void setSocialNetwork(List<SocialNetwork> socialNetwork) {
-        this.socialNetwork = socialNetwork;
+    public void setSocialNetworks(List<SocialNetwork> socialNetworks) {
+        this.socialNetworks = socialNetworks;
     }
 
     public List<Studio> getStudios() {
@@ -104,16 +107,24 @@ public class Company implements Serializable {
         this.studios = studios;
     }
 
+    public List<Service> getServices() {
+        return services;
+    }
+
+    public void setServices(List<Service> services) {
+        this.services = services;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Company company = (Company) o;
-        return id == company.id && isAssociation == company.isAssociation && description.equals(company.description) && Objects.equals(url, company.url) && Objects.equals(socialNetwork, company.socialNetwork) && Objects.equals(studios, company.studios);
+        return id == company.id && isAssociation == company.isAssociation && description.equals(company.description) && Objects.equals(url, company.url) && Objects.equals(socialNetworks, company.socialNetworks) && Objects.equals(studios, company.studios) && Objects.equals(services, company.services);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, description, isAssociation, url, socialNetwork, studios);
+        return Objects.hash(id, description, isAssociation, url, socialNetworks, studios, services);
     }
 }

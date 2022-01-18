@@ -1,11 +1,16 @@
 package com.michaelirimus.digitalhow.Model.Service;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.michaelirimus.digitalhow.Model.Company;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "serviceType")
 @Entity
 @Table(name = "services")
 @IdClass(ServiceCompositeKey.class)
@@ -20,7 +25,7 @@ public class Service implements Serializable {
     private boolean inHouse;
 
     @Id
-    @OneToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "company_id")
     private Company company;
 
