@@ -1,8 +1,6 @@
 package com.michaelirimus.digitalhow.Model;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.michaelirimus.digitalhow.Model.Service.Service;
 import com.michaelirimus.digitalhow.Model.SocialNetwork.SocialNetwork;

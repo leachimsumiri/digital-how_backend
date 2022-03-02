@@ -36,6 +36,10 @@ public class Studio implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     private Company company;
 
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @ManyToOne(fetch = FetchType.LAZY)
+    private City city;
+
     public Studio() {
     }
 
@@ -85,6 +89,14 @@ public class Studio implements Serializable {
 
     public void setCompany(Company company) {
         this.company = company;
+    }
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
     }
 
     @Override
