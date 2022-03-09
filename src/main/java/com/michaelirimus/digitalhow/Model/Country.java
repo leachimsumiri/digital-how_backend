@@ -19,7 +19,7 @@ public class Country implements Serializable {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "description")
+    @Column(name = "name")
     private String description;
 
     public Country() {

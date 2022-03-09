@@ -24,7 +24,7 @@ public class City implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     private Country country;
 
-    @Column(name = "description")
+    @Column(name = "name")
     private String description;
 
     public City() {
