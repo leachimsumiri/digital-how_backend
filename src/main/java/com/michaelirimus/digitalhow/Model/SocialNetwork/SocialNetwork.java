@@ -8,9 +8,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "socialNetworkType")
 @Entity
 @Table(name = "social_networks")
 @IdClass(SocialNetworkCompositeKey.class)

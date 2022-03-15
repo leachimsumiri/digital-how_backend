@@ -7,9 +7,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id")
 @Entity
 @Table(name = "countries")
 public class Country implements Serializable {
@@ -17,7 +14,7 @@ public class Country implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private int id;
+    private Long id;
 
     @Column(name = "name")
     private String description;
@@ -25,11 +22,11 @@ public class Country implements Serializable {
     public Country() {
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

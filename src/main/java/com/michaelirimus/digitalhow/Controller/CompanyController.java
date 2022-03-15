@@ -31,4 +31,9 @@ public class CompanyController {
 
         return companyDescriptions;
     }
+
+    @GetMapping("/company")
+    public Company getCompanyById(@RequestParam Long id) {
+        return companyService.getCompanyById(id);
+    }
 }
