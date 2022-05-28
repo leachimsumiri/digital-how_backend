@@ -20,4 +20,14 @@ public class CityController {
                                 @RequestParam(name = "size") int size) {
         return cityRepository.findAll(Pageable.ofSize(size).withPage(page)).getContent();
     }
+
+    @GetMapping("/citiesCount")
+    public long getCitiesCount() {
+        return cityRepository.count();
+    }
+
+    @GetMapping("/citiesPages")
+    public long getCitiesPages(@RequestParam(name = "size", required = true) int size) {
+        return cityRepository.count() / size + 1;
+    }
 }
